@@ -1,0 +1,97 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Bus_Wires[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Bus_Wires[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Bus_Wires[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Bus_Wires[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Bus_Wires[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Bus_Wires[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Bus_Wires[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Bus_Wires[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Bus_Wires[8]",
+					"strict" : false
+				},
+				{
+					"name" : "Done",
+					"strict" : false
+				},
+				{
+					"name" : "DataIn[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DataIn[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DataIn[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DataIn[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DataIn[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DataIn[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DataIn[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DataIn[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DataIn[8]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "Run",
+					"strict" : false
+				},
+				{
+					"name" : "aResetn",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
