@@ -1,10 +1,11 @@
 vendor_name = ModelSim
-source_file = 1, D:/TP2_processor/processor.vhd
-source_file = 1, c:/intelfpga_lite/20.1/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
-source_file = 1, c:/intelfpga_lite/20.1/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
-source_file = 1, c:/intelfpga_lite/20.1/quartus/libraries/vhdl/ieee/timing_b.vhd
-source_file = 1, c:/intelfpga_lite/20.1/quartus/libraries/vhdl/ieee/timing_p.vhd
-source_file = 1, D:/TP2_processor/db/processor.cbx.xml
+source_file = 1, C:/Users/hp/Documents/ENSAM/Architecture/Advanced-Architecture-Of-Embedded-Computers/TP2_processor/processor.vhd
+source_file = 1, C:/Users/hp/Documents/ENSAM/Architecture/Advanced-Architecture-Of-Embedded-Computers/TP2_processor/Waveform.vwf
+source_file = 1, d:/intel/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
+source_file = 1, d:/intel/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
+source_file = 1, d:/intel/quartus/libraries/vhdl/ieee/timing_b.vhd
+source_file = 1, d:/intel/quartus/libraries/vhdl/ieee/timing_p.vhd
+source_file = 1, C:/Users/hp/Documents/ENSAM/Architecture/Advanced-Architecture-Of-Embedded-Computers/TP2_processor/db/processor.cbx.xml
 design_name = processor
 instance = comp, \Bus_Wires[0]~output\, Bus_Wires[0]~output, processor, 1
 instance = comp, \Bus_Wires[1]~output\, Bus_Wires[1]~output, processor, 1

@@ -1,0 +1,880 @@
+Analysis & Synthesis report for Partie2
+Mon May 22 21:49:42 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |partie2|processor:U1|Tcycle_Q
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: processor:U1
+ 12. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg0
+ 13. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg1
+ 14. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg2
+ 15. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg3
+ 16. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg4
+ 17. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg5
+ 18. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg6
+ 19. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg7
+ 20. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg8
+ 21. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg9
+ 22. Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg10
+ 23. Port Connectivity Checks: "processor:U1|dec3to8:U2"
+ 24. Port Connectivity Checks: "processor:U1|dec3to8:U1"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon May 22 21:49:42 2023       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; Partie2                                     ;
+; Top-level Entity Name           ; partie2                                     ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 103                                         ;
+; Total pins                      ; 22                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; Partie2            ; Partie2            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                        ;
++----------------------------------+-----------------+-----------------------+----------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path           ; Library ;
++----------------------------------+-----------------+-----------------------+----------------------------------------+---------+
+; partie2.vhd                      ; yes             ; Auto-Found VHDL File  ; D:/TP3_processor/Partie2/partie2.vhd   ;         ;
+; processor.vhd                    ; yes             ; Auto-Found VHDL File  ; D:/TP3_processor/Partie2/processor.vhd ;         ;
++----------------------------------+-----------------+-----------------------+----------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 82           ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 94           ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 52           ;
+;     -- 5 input functions                    ; 13           ;
+;     -- 4 input functions                    ; 24           ;
+;     -- <=3 input functions                  ; 5            ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 103          ;
+;                                             ;              ;
+; I/O pins                                    ; 22           ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; Key[1]~input ;
+; Maximum fan-out                             ; 103          ;
+; Total fan-out                               ; 835          ;
+; Average fan-out                             ; 3.46         ;
++---------------------------------------------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                  ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name               ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+-------------+--------------+
+; |partie2                   ; 94 (0)              ; 103 (0)                   ; 0                 ; 0          ; 22   ; 0            ; |partie2                          ; partie2     ; work         ;
+;    |processor:U1|          ; 94 (94)             ; 103 (4)                   ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1             ; processor   ; work         ;
+;       |reg_n:Reg0|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg0  ; reg_n       ; work         ;
+;       |reg_n:Reg10|        ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg10 ; reg_n       ; work         ;
+;       |reg_n:Reg1|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg1  ; reg_n       ; work         ;
+;       |reg_n:Reg2|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg2  ; reg_n       ; work         ;
+;       |reg_n:Reg3|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg3  ; reg_n       ; work         ;
+;       |reg_n:Reg4|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg4  ; reg_n       ; work         ;
+;       |reg_n:Reg5|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg5  ; reg_n       ; work         ;
+;       |reg_n:Reg6|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg6  ; reg_n       ; work         ;
+;       |reg_n:Reg7|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg7  ; reg_n       ; work         ;
+;       |reg_n:Reg8|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg8  ; reg_n       ; work         ;
+;       |reg_n:Reg9|         ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |partie2|processor:U1|reg_n:Reg9  ; reg_n       ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |partie2|processor:U1|Tcycle_Q                      ;
++-------------+-------------+-------------+-------------+-------------+
+; Name        ; Tcycle_Q.T3 ; Tcycle_Q.T2 ; Tcycle_Q.T1 ; Tcycle_Q.T0 ;
++-------------+-------------+-------------+-------------+-------------+
+; Tcycle_Q.T0 ; 0           ; 0           ; 0           ; 0           ;
+; Tcycle_Q.T1 ; 0           ; 0           ; 1           ; 1           ;
+; Tcycle_Q.T2 ; 0           ; 1           ; 0           ; 1           ;
+; Tcycle_Q.T3 ; 1           ; 0           ; 0           ; 1           ;
++-------------+-------------+-------------+-------------+-------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 103   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 99    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |partie2|processor:U1|Mux0       ;
+; 10:1               ; 9 bits    ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; No         ; |partie2|processor:U1|Selector26 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1 ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; mv             ; 000   ; Unsigned Binary                  ;
+; mvi            ; 001   ; Unsigned Binary                  ;
+; add            ; 010   ; Unsigned Binary                  ;
+; sub            ; 011   ; Unsigned Binary                  ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg0 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg1 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg2 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg3 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg4 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg5 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg6 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg7 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg8 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg9 ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; n              ; 9     ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processor:U1|reg_n:Reg10 ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; n              ; 9     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "processor:U1|dec3to8:U2" ;
++--------+-------+----------+-------------------------+
+; Port   ; Type  ; Severity ; Details                 ;
++--------+-------+----------+-------------------------+
+; enable ; Input ; Info     ; Stuck at VCC            ;
++--------+-------+----------+-------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "processor:U1|dec3to8:U1" ;
++--------+-------+----------+-------------------------+
+; Port   ; Type  ; Severity ; Details                 ;
++--------+-------+----------+-------------------------+
+; enable ; Input ; Info     ; Stuck at VCC            ;
++--------+-------+----------+-------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 103                         ;
+;     CLR               ; 4                           ;
+;     ENA               ; 99                          ;
+; arriav_lcell_comb     ; 94                          ;
+;     arith             ; 10                          ;
+;         2 data inputs ; 1                           ;
+;         4 data inputs ; 9                           ;
+;     normal            ; 84                          ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 15                          ;
+;         5 data inputs ; 13                          ;
+;         6 data inputs ; 52                          ;
+; boundary_port         ; 22                          ;
+;                       ;                             ;
+; Max LUT depth         ; 7.80                        ;
+; Average LUT depth     ; 5.19                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Mon May 22 21:49:35 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Partie2 -c Partie2
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Warning (12125): Using design file partie2.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: partie2-arch File: D:/TP3_processor/Partie2/partie2.vhd Line: 13
+    Info (12023): Found entity 1: partie2 File: D:/TP3_processor/Partie2/partie2.vhd Line: 4
+Info (12127): Elaborating entity "Partie2" for the top level hierarchy
+Warning (12125): Using design file processor.vhd, which is not specified as a design file for the current project, but contains definitions for 6 design units and 3 entities in project
+    Info (12022): Found design unit 1: processor-arch File: D:/TP3_processor/Partie2/processor.vhd Line: 21
+    Info (12022): Found design unit 2: dec3to8-arch File: D:/TP3_processor/Partie2/processor.vhd Line: 165
+    Info (12022): Found design unit 3: reg_n-arch File: D:/TP3_processor/Partie2/processor.vhd Line: 199
+    Info (12023): Found entity 1: processor File: D:/TP3_processor/Partie2/processor.vhd Line: 5
+    Info (12023): Found entity 2: dec3to8 File: D:/TP3_processor/Partie2/processor.vhd Line: 157
+    Info (12023): Found entity 3: reg_n File: D:/TP3_processor/Partie2/processor.vhd Line: 189
+Info (12128): Elaborating entity "processor" for hierarchy "processor:U1" File: D:/TP3_processor/Partie2/partie2.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at processor.vhd(80): signal "Yregn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 80
+Warning (10492): VHDL Process Statement warning at processor.vhd(80): signal "Xregn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 80
+Warning (10492): VHDL Process Statement warning at processor.vhd(81): signal "Xregn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 81
+Warning (10492): VHDL Process Statement warning at processor.vhd(82): signal "Xregn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 82
+Warning (10492): VHDL Process Statement warning at processor.vhd(83): signal "Xregn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at processor.vhd(87): signal "Yregn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 87
+Warning (10492): VHDL Process Statement warning at processor.vhd(88): signal "Yregn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 88
+Warning (10492): VHDL Process Statement warning at processor.vhd(92): signal "Xregn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 92
+Warning (10492): VHDL Process Statement warning at processor.vhd(93): signal "Xregn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 93
+Warning (10492): VHDL Process Statement warning at processor.vhd(111): signal "AddSub" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/TP3_processor/Partie2/processor.vhd Line: 111
+Info (12128): Elaborating entity "dec3to8" for hierarchy "processor:U1|dec3to8:U1" File: D:/TP3_processor/Partie2/processor.vhd Line: 52
+Info (12128): Elaborating entity "reg_n" for hierarchy "processor:U1|reg_n:Reg0" File: D:/TP3_processor/Partie2/processor.vhd Line: 137
+Info (286030): Timing-Driven Synthesis is running
+Warning (20013): Ignored 374 assignments for entity "HPSFPGA" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[11] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[12] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[13] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[14] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[5] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[6] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[7] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[8] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[9] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CAS_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CKE -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_P -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CS_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[10] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[11] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[12] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[13] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[14] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[15] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[16] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[17] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[18] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[19] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[20] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[21] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[22] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[23] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[24] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[25] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[26] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[27] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[28] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[29] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[30] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[31] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[32] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[33] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[34] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[35] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[36] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[37] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[38] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[39] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[5] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[6] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[7] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[8] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[9] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ODT -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_RAS_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_RESET_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_WE_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[10] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[11] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[12] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[13] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[14] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[5] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[6] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[7] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[8] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[9] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_BA[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_BA[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_BA[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_CAS_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_CKE -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_CK_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_CK_P -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_CS_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[10] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[11] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[12] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[13] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[14] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[15] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[16] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[17] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[18] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[19] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[20] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[21] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[22] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[23] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[24] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[25] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[26] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[27] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[28] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[29] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[30] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[31] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[32] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[33] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[34] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[35] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[36] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[37] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[38] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[39] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[5] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[6] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[7] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[8] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[9] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ODT -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_RAS_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_RESET_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_RZQ -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_WE_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to soc_system|hps_0|hps_io|border|hps_sdram_inst|pll0|fbout -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|pll0|fbout -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to u0|hps_0|hps_io|border|hps_sdram_inst|pll0|fbout -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[0].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[1].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[2].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[3].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|ureset|phy_reset_mem_stable_n -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|ureset|phy_reset_n -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[0].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[1].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[2].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[3].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[4].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|ureset|phy_reset_mem_stable_n -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to soc_system|hps_arm|hps_io|border|hps_sdram_inst|p0|umemphy|ureset|phy_reset_n -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[0].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[1].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[2].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uio_pads|dq_ddio[3].read_capture_clk_buffer -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|uread_datapath|reset_n_fifo_write_side[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|ureset|phy_reset_mem_stable_n -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name GLOBAL_SIGNAL OFF -to u0|hps_0|hps_io|border|hps_sdram_inst|p0|umemphy|ureset|phy_reset_n -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[10] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[11] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[12] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[13] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[14] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[5] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[6] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[7] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[8] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[9] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CAS_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CKE -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CS_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ODT -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_RAS_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_RESET_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_WE_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[10] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[11] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[12] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[13] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[14] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[15] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[16] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[17] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[18] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[19] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[20] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[21] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[22] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[23] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[24] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[25] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[26] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[27] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[28] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[29] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[30] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[31] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[32] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[33] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[34] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[35] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[36] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[37] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[38] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[39] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[5] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[6] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[7] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[8] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[9] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITHOUT CALIBRATION" -to HPS_DDR3_CK_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITHOUT CALIBRATION" -to HPS_DDR3_CK_P -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[0] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[10] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[11] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[12] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[13] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[14] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[15] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[16] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[17] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[18] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[19] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[1] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[20] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[21] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[22] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[23] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[24] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[25] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[26] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[27] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[28] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[29] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[2] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[30] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[31] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[32] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[33] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[34] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[35] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[36] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[37] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[38] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[39] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[3] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[4] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[5] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[6] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[7] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[8] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[9] -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_N -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_P -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name ENABLE_BENEFICIAL_SKEW_OPTIMIZATION_FOR_NON_GLOBAL_CLOCKS ON -to soc_system|hps_0|hps_io|border|hps_sdram_inst -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name ENABLE_BENEFICIAL_SKEW_OPTIMIZATION_FOR_NON_GLOBAL_CLOCKS ON -to soc_system|hps_arm|hps_io|border|hps_sdram_inst -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name ENABLE_BENEFICIAL_SKEW_OPTIMIZATION_FOR_NON_GLOBAL_CLOCKS ON -to u0|hps_0|hps_io|border|hps_sdram_inst -entity HPSFPGA was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity HPSFPGA -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity HPSFPGA -section_id Top was ignored
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 207 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 12 input pins
+    Info (21059): Implemented 10 output pins
+    Info (21061): Implemented 185 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 388 warnings
+    Info: Peak virtual memory: 4877 megabytes
+    Info: Processing ended: Mon May 22 21:49:42 2023
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:16
+
+

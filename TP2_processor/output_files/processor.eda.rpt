@@ -1,6 +1,6 @@
 EDA Netlist Writer report for processor
-Sat May 20 11:36:14 2023
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Sun May 21 23:06:26 2023
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
 ---------------------
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sat May 20 11:36:14 2023 ;
+; EDA Netlist Writer Status ; Successful - Sun May 21 23:06:26 2023 ;
 ; Revision Name             ; processor                             ;
 ; Top-level Entity Name     ; processor                             ;
 ; Family                    ; Cyclone V                             ;
@@ -66,13 +66,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+-------------------------------------------------+
-; Simulation Generated Files                      ;
-+-------------------------------------------------+
-; Generated Files                                 ;
-+-------------------------------------------------+
-; D:/TP2_processor/simulation/qsim//processor.vho ;
-+-------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                                        ;
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                                   ;
++-----------------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/hp/Documents/ENSAM/Architecture/Advanced-Architecture-Of-Embedded-Computers/TP2_processor/simulation/qsim//processor.vho ;
++-----------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -80,7 +80,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
-    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
     Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
     Info: Your use of Intel Corporation's design tools, logic functions 
     Info: and other software and tools, and any partner logic 
@@ -95,14 +95,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sat May 20 11:36:13 2023
-Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=D:/TP2_processor/simulation/qsim/ processor -c processor
+    Info: Processing started: Sun May 21 23:06:23 2023
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/hp/Documents/ENSAM/Architecture/Advanced-Architecture-Of-Embedded-Computers/TP2_processor/simulation/qsim/ processor -c processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (204019): Generated file processor.vho in folder "D:/TP2_processor/simulation/qsim//" for EDA simulation tool
+Info (204019): Generated file processor.vho in folder "C:/Users/hp/Documents/ENSAM/Architecture/Advanced-Architecture-Of-Embedded-Computers/TP2_processor/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4723 megabytes
-    Info: Processing ended: Sat May 20 11:36:14 2023
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 4724 megabytes
+    Info: Processing ended: Sun May 21 23:06:26 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 

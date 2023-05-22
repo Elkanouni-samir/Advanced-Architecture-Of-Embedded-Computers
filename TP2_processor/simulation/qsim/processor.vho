@@ -15,9 +15,9 @@
 
 -- VENDOR "Altera"
 -- PROGRAM "Quartus Prime"
--- VERSION "Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+-- VERSION "Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
 
--- DATE "05/20/2023 11:36:14"
+-- DATE "05/21/2023 23:06:26"
 
 -- 
 -- Device: Altera 5CSEMA5F31C6 Package FBGA896
@@ -239,6 +239,9 @@ SIGNAL \Reg3|Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \Reg0|Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \Reg4|Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \Reg8|Q\ : std_logic_vector(8 DOWNTO 0);
+SIGNAL \ALT_INV_Equal8~1_combout\ : std_logic;
+SIGNAL \ALT_INV_Equal8~0_combout\ : std_logic;
+SIGNAL \ALT_INV_Equal0~0_combout\ : std_logic;
 SIGNAL \ALT_INV_Equal1~1_combout\ : std_logic;
 SIGNAL \ALT_INV_DinOut~0_combout\ : std_logic;
 SIGNAL \ALT_INV_Equal2~2_combout\ : std_logic;
@@ -265,6 +268,9 @@ SIGNAL \ALT_INV_Tcycle_Q.T2~q\ : std_logic;
 SIGNAL \ALT_INV_Selector2~0_combout\ : std_logic;
 SIGNAL \ALT_INV_Tcycle_Q.T1~q\ : std_logic;
 SIGNAL \Reg2|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
+SIGNAL \ALT_INV_Selector18~0_combout\ : std_logic;
+SIGNAL \Reg0|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
+SIGNAL \Reg7|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \Reg10|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \Reg1|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \Reg3|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
@@ -275,8 +281,6 @@ SIGNAL \Reg4|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \Reg5|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \Reg6|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \ALT_INV_Selector19~0_combout\ : std_logic;
-SIGNAL \Reg0|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
-SIGNAL \Reg7|ALT_INV_Q\ : std_logic_vector(8 DOWNTO 0);
 SIGNAL \ALT_INV_Selector20~3_combout\ : std_logic;
 SIGNAL \ALT_INV_Selector20~2_combout\ : std_logic;
 SIGNAL \ALT_INV_Selector20~1_combout\ : std_logic;
@@ -314,9 +318,6 @@ SIGNAL \ALT_INV_Equal5~0_combout\ : std_logic;
 SIGNAL \ALT_INV_Equal6~1_combout\ : std_logic;
 SIGNAL \ALT_INV_Equal7~1_combout\ : std_logic;
 SIGNAL \ALT_INV_Equal7~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Equal8~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Equal8~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Equal0~0_combout\ : std_logic;
 SIGNAL \ALT_INV_Run~input_o\ : std_logic;
 SIGNAL \ALT_INV_DataIn[8]~input_o\ : std_logic;
 SIGNAL \ALT_INV_DataIn[7]~input_o\ : std_logic;
@@ -335,7 +336,6 @@ SIGNAL \ALT_INV_Selector17~0_combout\ : std_logic;
 SIGNAL \ALT_INV_Selector18~3_combout\ : std_logic;
 SIGNAL \ALT_INV_Selector18~2_combout\ : std_logic;
 SIGNAL \ALT_INV_Selector18~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Selector18~0_combout\ : std_logic;
 
 BEGIN
 
@@ -348,6 +348,9 @@ Done <= ww_Done;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
+\ALT_INV_Equal8~1_combout\ <= NOT \Equal8~1_combout\;
+\ALT_INV_Equal8~0_combout\ <= NOT \Equal8~0_combout\;
+\ALT_INV_Equal0~0_combout\ <= NOT \Equal0~0_combout\;
 \ALT_INV_Equal1~1_combout\ <= NOT \Equal1~1_combout\;
 \ALT_INV_DinOut~0_combout\ <= NOT \DinOut~0_combout\;
 \ALT_INV_Equal2~2_combout\ <= NOT \Equal2~2_combout\;
@@ -382,6 +385,9 @@ ww_devpor <= devpor;
 \Reg9|ALT_INV_Q\(5) <= NOT \Reg9|Q\(5);
 \Reg9|ALT_INV_Q\(4) <= NOT \Reg9|Q\(4);
 \Reg2|ALT_INV_Q\(0) <= NOT \Reg2|Q\(0);
+\ALT_INV_Selector18~0_combout\ <= NOT \Selector18~0_combout\;
+\Reg0|ALT_INV_Q\(8) <= NOT \Reg0|Q\(8);
+\Reg7|ALT_INV_Q\(8) <= NOT \Reg7|Q\(8);
 \Reg10|ALT_INV_Q\(8) <= NOT \Reg10|Q\(8);
 \Reg1|ALT_INV_Q\(8) <= NOT \Reg1|Q\(8);
 \Reg3|ALT_INV_Q\(8) <= NOT \Reg3|Q\(8);
@@ -498,9 +504,6 @@ ww_devpor <= devpor;
 \ALT_INV_Equal6~1_combout\ <= NOT \Equal6~1_combout\;
 \ALT_INV_Equal7~1_combout\ <= NOT \Equal7~1_combout\;
 \ALT_INV_Equal7~0_combout\ <= NOT \Equal7~0_combout\;
-\ALT_INV_Equal8~1_combout\ <= NOT \Equal8~1_combout\;
-\ALT_INV_Equal8~0_combout\ <= NOT \Equal8~0_combout\;
-\ALT_INV_Equal0~0_combout\ <= NOT \Equal0~0_combout\;
 \ALT_INV_Run~input_o\ <= NOT \Run~input_o\;
 \ALT_INV_DataIn[8]~input_o\ <= NOT \DataIn[8]~input_o\;
 \ALT_INV_DataIn[7]~input_o\ <= NOT \DataIn[7]~input_o\;
@@ -530,9 +533,6 @@ ww_devpor <= devpor;
 \Reg4|ALT_INV_Q\(8) <= NOT \Reg4|Q\(8);
 \Reg5|ALT_INV_Q\(8) <= NOT \Reg5|Q\(8);
 \Reg6|ALT_INV_Q\(8) <= NOT \Reg6|Q\(8);
-\ALT_INV_Selector18~0_combout\ <= NOT \Selector18~0_combout\;
-\Reg0|ALT_INV_Q\(8) <= NOT \Reg0|Q\(8);
-\Reg7|ALT_INV_Q\(8) <= NOT \Reg7|Q\(8);
 
 -- Location: IOOBUF_X89_Y15_N56
 \Bus_Wires[0]~output\ : cyclonev_io_obuf

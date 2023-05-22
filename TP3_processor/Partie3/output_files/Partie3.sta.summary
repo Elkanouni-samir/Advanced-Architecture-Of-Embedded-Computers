@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'key[1]'
+Slack : -6.889
+TNS   : -590.011
+
+Type  : Slow 1100mV 85C Model Setup 'key[0]'
+Slack : -0.479
+TNS   : -3.407
+
+Type  : Slow 1100mV 85C Model Hold 'key[1]'
+Slack : -0.619
+TNS   : -13.159
+
+Type  : Slow 1100mV 85C Model Hold 'key[0]'
+Slack : 0.376
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'key[0]'
+Slack : -2.174
+TNS   : -27.900
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'key[1]'
+Slack : -0.394
+TNS   : -71.189
+
+Type  : Slow 1100mV 0C Model Setup 'key[1]'
+Slack : -6.990
+TNS   : -592.129
+
+Type  : Slow 1100mV 0C Model Setup 'key[0]'
+Slack : -0.425
+TNS   : -3.447
+
+Type  : Slow 1100mV 0C Model Hold 'key[1]'
+Slack : -0.487
+TNS   : -7.548
+
+Type  : Slow 1100mV 0C Model Hold 'key[0]'
+Slack : 0.387
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'key[0]'
+Slack : -2.174
+TNS   : -27.426
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'key[1]'
+Slack : -0.394
+TNS   : -66.021
+
+Type  : Fast 1100mV 85C Model Setup 'key[1]'
+Slack : -3.500
+TNS   : -297.739
+
+Type  : Fast 1100mV 85C Model Setup 'key[0]'
+Slack : 0.119
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'key[1]'
+Slack : -0.252
+TNS   : -2.783
+
+Type  : Fast 1100mV 85C Model Hold 'key[0]'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'key[0]'
+Slack : -2.174
+TNS   : -25.057
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'key[1]'
+Slack : -0.332
+TNS   : -33.945
+
+Type  : Fast 1100mV 0C Model Setup 'key[1]'
+Slack : -3.396
+TNS   : -288.356
+
+Type  : Fast 1100mV 0C Model Setup 'key[0]'
+Slack : 0.200
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'key[1]'
+Slack : -0.257
+TNS   : -3.461
+
+Type  : Fast 1100mV 0C Model Hold 'key[0]'
+Slack : 0.172
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'key[0]'
+Slack : -2.174
+TNS   : -24.720
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'key[1]'
+Slack : -0.315
+TNS   : -32.255
+
+------------------------------------------------------------

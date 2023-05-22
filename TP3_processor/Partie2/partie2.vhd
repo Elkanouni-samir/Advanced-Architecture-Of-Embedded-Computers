@@ -1,0 +1,32 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity partie2 is
+	port(
+	   
+		Key: in std_logic_vector(1 downto 0);
+		SW : in std_logic_vector(9 downto 0);
+		LEDR: out std_logic_vector(9 downto 0)
+		); 
+end partie2;
+
+architecture arch of partie2 is
+
+-- Add below the architecture of the circuit
+
+
+  component processor is
+
+	
+	port(
+		clock, aResetn, Run: in std_logic;
+		Din: in std_logic_vector(8 downto 0);
+		BusWires: buffer std_logic_vector(8 downto 0);
+		Done: buffer std_logic
+		);
+
+end component;
+begin
+	U1: processor port map(clock=>key(1), aResetn=>Key(0), Run=>Sw(9), Din=> Sw(8 downto 0), Buswires=> LEDR(8 downto 0), Done=>LEDR(9));
+
+	end arch;

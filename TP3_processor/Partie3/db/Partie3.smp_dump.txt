@@ -1,0 +1,7 @@
+
+State Machine - |partie3|processor:U1|Tcycle_Q
+Name Tcycle_Q.T3 Tcycle_Q.T2 Tcycle_Q.T1 Tcycle_Q.T0 
+Tcycle_Q.T0 0 0 0 0 
+Tcycle_Q.T1 0 0 1 1 
+Tcycle_Q.T2 0 1 0 1 
+Tcycle_Q.T3 1 0 0 1 
