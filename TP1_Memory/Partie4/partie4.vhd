@@ -71,9 +71,22 @@ BEGIN
   
   -------------------------------------------------------------------
 	
-	
-	
-	
+	process(CLOCK_50)
+--	variable cp1s : unsigned(25 downto 0):=(others=>'0');
+	begin
+	if(rising_edge(CLOCK_50)) then
+		
+		onesSeondCount<=onesSeondCount+1;
+		if(onesSeondCount=50000000) then
+			onesSeondCount<=0;
+		end if;
+		if(onesSeondCount=0) then 
+			 Rd_addr<=Rd_addr+1;
+			 end if; 
+		end if; 
+
+	end process;
+			
 	
 	
 	
@@ -111,6 +124,13 @@ BEGIN
 
 
 
+	
+	U2: hex7seg port map (hex=>DataIn, display => HEX0);
+	U3: hex7seg port map (hex=>DataOut, display => HEX1);
+	U4: hex7seg port map (hex=>Rd_addr_v(3 downto 0), display => HEX4);
+	U5: hex7seg port map (hex=>("000" & Rd_addr_v(4)), display => HEX5);
+	U6: hex7seg port map (hex=>Wr_addr(3 downto 0), display => HEX2);
+	U7: hex7seg port map (hex=>("000" & Wr_addr(4)), display => HEX3);
 
 
 
